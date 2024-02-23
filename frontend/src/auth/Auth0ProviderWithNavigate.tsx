@@ -15,7 +15,9 @@ const Auth0ProviderWithNavigate = ({
     console.log("USER", user);
   };
 
-  if (!domain || !clientId || !redirectUri) {
+  
+  const isAuthInitialized = domain && clientId && redirectUri;
+  if (!isAuthInitialized) {
     throw new Error("Unable to initialiseAuth!!");
   }
 
