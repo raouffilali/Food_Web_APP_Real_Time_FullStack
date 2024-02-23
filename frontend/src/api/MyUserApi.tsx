@@ -1,0 +1,39 @@
+import { useMutation } from "react-query";
+
+const VITE_API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
+type CreateUserRequest = {
+  auth0Id: string | undefined;
+  name: string | undefined;
+  email: string | undefined;
+};
+
+export const useCreateMyUser = () => {
+  const createMyUserRequest = async (user: CreateUserRequest) => {
+    const response = await fetch(`${VITE_API_BASE_URL}/api/my/user`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to create user for some reason!");
+    }
+  };
+
+  const {
+    mutateAsync: createUser,
+    isLoading,
+    isError,
+    isSuccess,
+  } = useMutation(createMyUserRequest);
+
+  return {
+    createUser,
+    isLoading,
+    isError,
+    isSuccess,
+  };
+};
