@@ -4,9 +4,9 @@ import { useMutation } from "react-query";
 const VITE_API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 type CreateUserRequest = {
-  auth0Id: string | undefined;
-  name: string | undefined;
-  email: string | undefined;
+  auth0Id: string;
+  email: string;
+  name : string;
 };
 
 export const useCreateMyUser = () => {
@@ -24,7 +24,7 @@ export const useCreateMyUser = () => {
     });
 
     if (!response.ok) {
-      throw new Error("Failed to create user for some reason!");
+      throw new Error("Failed to create user");
     }
   };
 
