@@ -5,6 +5,14 @@ type Auth0ProviderWithNavigateProps = {
   children: React.ReactNode;
 };
 
+/**
+ * Auth0ProviderWithNavigate component.
+ *
+ * @component
+ * @param {Auth0ProviderWithNavigateProps} props - The component props.
+ * @returns {JSX.Element} The rendered component.
+ * @throws {Error} Throws an error if the authentication is not initialized.
+ */
 const Auth0ProviderWithNavigate = ({
   children,
 }: Auth0ProviderWithNavigateProps) => {
