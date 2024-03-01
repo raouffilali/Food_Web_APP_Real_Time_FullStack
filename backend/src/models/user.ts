@@ -22,6 +22,15 @@ const UserSchema = new mongoose.Schema(
     country: {
       type: String,
     },
+    addressLine1: {
+      type: String,
+    },
+    addressLine2: {
+      type: String,
+    },
+    city: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
